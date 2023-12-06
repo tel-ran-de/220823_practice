@@ -44,3 +44,65 @@ const a = 1
 // парметр - number
 // остаток от деления на 3 - %
 // возвращает true / false
+
+function devisionByThree(number) {
+  return number % 3 === 0
+}
+
+// 3. написать функцию которая проверяет больше число нуля или нет
+// если больше true
+// moreThanZero
+function moreThanZero(number) {
+  return number > 0
+}
+
+// 4. проверить возраст клиента, можно ли ему продавать алкоголь
+// age больше 18
+// sellAlcohol
+// возвращаем boolean
+
+// принимает второй параметр license
+// если есть документ и больше 18
+// license - булевое значения
+
+// Оператор  И
+function sellAlcohol(age, license) {
+  return age >= 18 && license
+}
+
+console.log(sellAlcohol(18, true))
+console.log(sellAlcohol(17, true))
+console.log(sellAlcohol(18, false))
+console.log(sellAlcohol(17, false))
+
+// 7. написать функцию, которая проверяет является ли тип данных строкой
+// параметр data
+// isString
+// typeof data
+// === 'string'
+// возвращается буллевое значение
+
+function isString(data) {
+  return typeof data === 'string'
+}
+// typeof служебное слово которое возвращает тип данных стоящих после
+// в виде строки
+
+console.log(isString({}))
+console.log(isString('ss'))
+isString(500)
+isString(true)
+
+console.log(typeof 'ssss' === 'string')
+console.log(typeof 4 === 'string')
+console.log(typeof {})
+
+//8. написать функцию которая проверяет является ли три числа cторонами трeугольника
+isTriangle
+// три стороны
+// булевое значение
+function isTriangle(a, b, c) {
+  return a + b > c && b + c > a && c + a > b
+}
+
+console.log(isTriangle(1, 4, 5))
