@@ -106,3 +106,139 @@ function isTriangle(a, b, c) {
 }
 
 console.log(isTriangle(1, 4, 5))
+
+// Primitive
+// number string boolean undefined null
+
+// Ссылочные
+// function object array
+
+// && || !
+
+const a1 = false || 'cc' || false
+console.log(a1)
+
+console.log(!false)
+const number = 5
+// какое-то если оно истино то выполни первое условие
+// conditional
+if (number > 4) {
+  console.log('это выражение верно')
+} else {
+  console.log('неверно')
+}
+// выражение если ложно то второе
+
+// нестрогое сравнение
+// строгое сравнение - по типу сравнивает
+// ==  ===
+
+// > < >= <=
+// : * % - +
+
+// возвращает рандомное число
+// 0 - 1
+// toFixed - оставить знаки после запятой/точки
+const number2 = Math.random() * 10
+console.log(Math.floor(number2)) // floor - пол - к меньшему целому числу
+console.log(Math.ceil(number2)) // ceil - потолок - к большему целому числу
+console.log(Math.round(number2)) // round круглый - к ближайшему
+
+// массив находится к [] элементы через запятую
+// индексация от 0
+
+// целое число от 0 до 3
+
+// создать функцию которая возвращает рандомного пользователя
+// functiom randomUser()
+// параметр функции - массив
+// return
+
+const arrayOfUsers = ['Ivan', 'Peter', 'Oleg', 'Vasya']
+arrayOfUsers[3]
+function randomUser(arr) {
+  const userIndex = Math.floor(Math.random() * arr.length) // случайный индекс массива
+  const user = arr[userIndex] // К случайному элементу массиву по случайному индексу
+  return user
+}
+
+console.log(randomUser(arrayOfUsers))
+console.log(randomUser(arrayOfUsers))
+console.log(randomUser(arrayOfUsers))
+console.log(randomUser(arrayOfUsers))
+
+const str1 = 'Hello'
+const str22 = 'World'
+const str3 = 'Bye'
+
+// 1. написать функцию stringLength
+// 2. которая принимает параметром строку
+// 3. возвращает длину строки через return
+
+function stringLength(str) {
+  return str.length
+}
+
+// вызов функции с аргументом
+console.log(stringLength(str1))
+console.log(stringLength(str22))
+console.log(stringLength(str3))
+console.log(stringLength('Hello'))
+console.log(stringLength('Hello my name is Victor'))
+
+function returnUser(arr, index) {
+  return arr[index]
+}
+
+console.log(returnUser(['Ivan', 'Peter', 'Oleg', 'Vasya'], 2))
+
+console.log(returnUser([1, 2, 3, 4, 5, 6], 0))
+
+// написать функцию concat
+// она принимает параметрами две строки - text1 text2
+// она возвращает две строки склеенные / соединенные
+
+function concat(text1, text2) {
+  return text1 + text2
+}
+console.log(concat('1', '2'))
+
+// function passwordLength принимать параметр str
+// функция возвращает длину строки
+// проверяем тип данных
+// typeof
+// вернуть булевое значение true
+// если typeof === string и длина больше 8
+function passwordLength(str) {
+  if (typeof str === 'string' && str.length > 8) {
+    console.log('добро пожаловать')
+  } else {
+    console.log('пароль неправильный должен быть строкой и длинее 8 символов')
+  }
+}
+
+console.log(passwordLength('123411111')) // true
+
+console.log(typeof '1' === 'string')
+
+// function showMark
+// параметр num - число
+// написать используя if else
+// если оценка больше 90 то оценка  A возвращает строку "А"
+// если больше 80 возвращает строку "B"
+function showMark(num) {
+  // num является числом и оно меньше 100 и больше 70
+  if (typeof num !== 'number' || num > 100 || num < 70) {
+    return 'данные должны быть числом - меньше 100 и больше 70'
+  }
+
+  if (num > 90) {
+    return 'A'
+  } else if (num > 80) {
+    return 'B'
+  } else {
+    return 'C'
+  }
+}
+
+console.log(showMark(95))
