@@ -62,3 +62,40 @@ for (let i = 1; i <= 20; i++) {
     console.log('FizzBuzz')
   }
 }
+// number1[0] = 6
+
+// массив индекс элемент
+const numbers11 = [6, 10, 11, 9, 12, 25, 30]
+// получить элемент = массив[индекс]
+console.log(numbers1[0])
+console.log(numbers1.length) // 7
+
+numbers1[numbers1.length] // numbers1[7] undefined
+// loop цикл
+// 3. посчитать сумму чисел у которых индекс кратен трем
+
+const numbers1 = [6, 10, 11, 9, 12, 25, 30]
+numbers1[0] //  к элементу по индексу
+
+let sum1 = 0
+for (let i = 1; i < numbers1.length; i++) {
+  if (i % 3 === 0) sum1 += numbers1[i]
+}
+console.log(sum1)
+
+// 4. Написать функцию которая выводит среднее арифметическое чисел массива
+// сумма элементов поделить на их количество
+// arr.length  - количество элементов в массиве
+function average(arr) {
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+  return sum / arr.length
+}
+console.log(average([6, 10, 11, 9, 12, 25, 30, 10]))
+
+// 5. Скопировать массив в новый используя push
+// push добавляет элемент в конец массива
+const ourArray = [6, 10, 11, 9, 12, 25, 30, 10, 90]
+const newArray = []
