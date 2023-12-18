@@ -1,6 +1,9 @@
 // массив это упорядоченная структура
 // порядок элементов - индекс элементов
 // начинается с 0
+
+const { start } = require('repl')
+
 // можем хранить любой тип
 const arr = [
   11,
@@ -155,3 +158,76 @@ console.log(true && !true) // false
 console.log(true && !false) // true
 console.log(false && !false) // false
 console.log(false && !true) //false
+
+// метод который очищают строку от лишних пробелов?
+trim()
+// написать функцию кот принимает строку и возвращает строку очищенную от пробелов справа слева
+
+function withoutWhitespaces(str) {
+  console.log(str)
+  console.log(str.length) // 4
+  return str.trimRight().trimLeft()
+}
+
+console.log(withoutWhitespaces('    aa ')) // 2
+console.log(withoutWhitespaces(200)) // 400
+console.log(withoutWhitespaces(234))
+
+// метод который проверяет начинается ли слово с подстроки/другой строки
+const apple = 'apple'
+console.log(apple.startsWith('dapp')) // true /false
+console.log(apple.includes('dapp'))
+// написать функцию которая принимает два параметра - str, substr
+// проверяет содержит ли str substr
+// начинается ли на эту подстроку
+// возвращает true или false
+function check(str, substr) {
+  if (str.includes(substr)) {
+    return str.toUpperCase()
+  } else {
+    return str.at(0).toUpperCase() + str.slice(1)
+  }
+}
+console.log(check('apple', 'app'))
+console.log(check('apple', 'ban'))
+// if else
+// если слово содержит подстроку, то сделай его целиком заглавными буквами
+// не соджержит то сделать первую букву заглавной и вернуть слово целиком
+// to UpperCase()
+// slice() - чтобы выбрать буквы со второй по последнюю
+// обратиться к первой букве str.at(0)
+console.log('aa' + 'bb')
+
+function checkStrSubstr(str, substr) {
+  if (str.includes(substr)) {
+    return str.toUpperCase()
+  } else {
+    return str.at(0).toUpperCase() + str.slice(1)
+  }
+}
+
+console.log(checkStrSubstr('apple', 'app'))
+console.log(checkStrSubstr('apple', 'bb'))
+// функция она принимает два параметра - имя, второй - фамилия
+// вернуть инициалы John White J.W.
+// ivan petrov -> I.P.
+// at + upperCase + concatanation +
+function returnInitials(name, surname) {
+  return name.at(0).toUpperCase() + '.' + surname.at(0).toUpperCase() + '.'
+}
+console.log(returnInitials('ivan', 'petrov'))
+console.log(returnInitials('john ', 'black'))
+// то же самое - Одна строка "John White" - разделить (метод строки делит оп пробелу)
+
+const fullName = 'John White'
+console.log(fullName.split(' ')) // [ 'John', 'White' ]
+const newArr1 = fullName.split(' ')
+
+function initials(fullName) {
+  const arrOfNames = fullName.split(' ')
+
+  const firstName = arrOfNames[0]
+  const lastName = arrOfNames[1]
+  return firstName[0].toUpperCase() + '.' + lastName[0].toUpperCase() + '.'
+}
+console.log(initials('John White'))
