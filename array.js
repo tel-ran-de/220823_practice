@@ -2,8 +2,6 @@
 // порядок элементов - индекс элементов
 // начинается с 0
 
-const { start } = require('repl')
-
 // можем хранить любой тип
 const arr = [
   11,
@@ -231,3 +229,89 @@ function initials(fullName) {
   return firstName[0].toUpperCase() + '.' + lastName[0].toUpperCase() + '.'
 }
 console.log(initials('John White'))
+
+// переписать на стрелочную
+const greet = (name) => console.log(`Hello, ${name}!`)
+
+const calculateArea = (length, width) => length * width
+
+const sayGoodbye = () => console.log(`Goodbye !`)
+// убираем слово function
+// после параметров ставим стрелку
+// если одно дейтсвие - можно убрать фигурные скобки и return
+const isEven = (number) => number % 2 === 0
+
+//убираем слово function ставим const
+// перед параметрами знак ровно
+// после параметров ставим стрелку
+// убрать фигурные скобки и return
+const reverseString = (str) => str.split('').reverse().join('')
+
+// HW
+function stringLength(str) {
+  console.log(`the length of "${str}" is:`, str.length)
+}
+
+function sayHi() {
+  console.log('Hi')
+}
+setTimeout(sayHi, 3000)
+// выполняется через опредленное и вызывает функцию кот передана первым параметром
+setTimeout(() => console.log('Hi1'), 3000)
+
+// два параметра - callback function / time
+
+// написать функцию, которая выводит сообщение "привет" через 3 секунды
+3000
+
+// напистаь функцию которая выводит сообщение с именем HI ${user} - function
+// выводит приветствие через 1000
+
+function sayHi(name) {
+  console.log(`HI, ${name}!`)
+}
+
+setTimeout(function () {
+  sayHi('Ivan')
+}, 1000)
+
+setTimeout(() => sayHi('Vlad'), 1000)
+
+// MAP
+
+const arrNumber3 = [3, 4, 5, 6, 7, 8, 9]
+// map возвращает новый массив
+// un - не
+// defined - определенный
+// undefined -  неопредленное значение
+// map метод массива
+const NA = arrNumber3.map((element) => element * 3)
+const NA1 = arrNumber3.map(function (element) {
+  return element * 3
+})
+
+const words1 = ['apple', 'banana', 'cherry']
+const newWords = words1.map((element) => element.length)
+console.log(newWords)
+// вернуть новый массив содержит длину слов
+// element.length
+
+// 4 Добавить восклицательный знак в конце каждого слова
+const words22 = ['hello', 'world', 'javascript']
+const na = words22.map((el) => el + '!')
+console.log(na)
+// вернуть новый массив и все имена с начинаются с загл буквы
+const users = [
+  'john',
+  'emma',
+  'david',
+  'sophia',
+  'alex',
+  'olivia',
+  'william',
+  'mia',
+  'james',
+  'ava',
+]
+
+console.log(users.map((el) => el.at(0).toUpperCase() + el.slice(1)))
