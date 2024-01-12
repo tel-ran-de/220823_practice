@@ -182,16 +182,23 @@ document.getElementsByClassName('userList')
 const header = document.createElement('header')
 // чтобы элемент на странице отобразился необходимо его прикрепить
 document.body.append(header)
-
-// создать тег nav
 const nav = document.createElement('nav')
-// прикрепить его к header
-header.append(document.createElement('nav'))
+header.append(nav)
 
 const ul = document.createElement('ul')
 nav.append(ul)
 
 const categories = ['Sports', 'Politics', 'Nature', 'Meteo']
+categories.forEach((element) => {
+  const li = document.createElement('li')
+  li.innerText = element
+  ul.append(li)
+  // li.textContent = element
+  // элемент к которому прикрепляем а потом элемент который крепим
+  // parent.append(child)
+})
 // пройтись по массиву
 // создать элемент li
 // прикрепить к ul
+
+addEventListener(type, listener)
