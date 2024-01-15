@@ -36,10 +36,25 @@ nameInput.setAttribute('placeholder', 'введите имя')
 nameInput.setAttribute('type', 'text')
 
 // 13. Создать label для пароля
-// аттрибут for
-// добавить текст=название
+const passwordLabel = document.createElement('label')
+passwordLabel.setAttribute('for', 'password')
+passwordLabel.innerText = 'пароль'
+form.append(passwordLabel)
+
 // 14. создать input для пароля
-// 1. type = 'password'
-// 2 id
-// 3. placeholder
-// 15. Прикрепить к форме
+const passwordInput = document.createElement('input')
+passwordInput.setAttribute('type', 'password')
+passwordInput.setAttribute('id', 'password')
+passwordInput.setAttribute('placeholder', 'введите пароль')
+form.append(passwordInput)
+
+// 15  создать кнопку
+const submitButton = document.createElement('button')
+// текст войти
+submitButton.innerText = 'Log in'
+submitButton.setAttribute('type', 'submit')
+form.append(submitButton)
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault()
+})
