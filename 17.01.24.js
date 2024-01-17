@@ -65,9 +65,38 @@ const products = [
   { name: 'Grape', price: 22 },
   { name: 'Orange', price: 12 },
 ]
-products[0].name
-products[0].price
 const minPrice = 10
 const maxPrice = 20
+const sorted = products.filter((el) => el.price > minPrice && el.price < maxPrice)
 
 // 5. Найти самый дорогой товар используя reduce
+const res = products.reduce((acc, cv) => (acc.price > cv.price ? acc : cv))
+console.log(res)
+// 6. вернуть среднюю оценку marks -результат массив средних оценок
+// map(el => el.marks)
+const arr21 = [
+  { id: 1, title: 'велосипед', price: 45000, marks: [4, 5, 3, 5] },
+  { id: 2, title: 'самокат', price: 15000, marks: [4, 4, 5, 4] },
+  { id: 3, title: 'сноуборд', price: 20000, marks: [3, 3, 2, 3] },
+  { id: 4, title: 'лыжи', price: 22000, marks: [4, 4, 3, 4] },
+]
+const avMarks = arr21.map(function (el) {
+  const sum = el.marks.reduce((accumulator, currentValue) => accumulator + currentValue)
+  const length = el.marks.length
+  return sum / length
+})
+
+console.log(avMarks)
+// 7. отсортировать объекты по алфавиту
+const people1 = [
+  { name: 'Frank', age: 35 },
+  { name: 'Eva', age: 22 },
+  { name: 'Hannah', age: 31 },
+  { name: 'Alice', age: 25 },
+  { name: 'Charlie', age: 30 },
+  { name: 'Jack', age: 27 },
+  { name: 'Bob', age: 20 },
+  { name: 'David', age: 28 },
+  { name: 'Grace', age: 29 },
+  { name: 'Isaac', age: 23 },
+]
