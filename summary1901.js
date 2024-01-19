@@ -1,45 +1,41 @@
+import { users } from './utils/users.js'
+
 const root = document.querySelector('#root')
+const header = document.createElement('header')
+root.append(header)
 
-// const classList = {
-//   add: function () {},
-//   remove: function () {},
-// }
+const userContainer = document.createElement('div')
+userContainer.classList.add('user-container')
+root.append(userContainer)
 
-// classList - специальный объект со своими методами
-root.classList.add('container')
-root.classList.remove('container') // удаляет
-// переписывается предыдщуий класс
-// root.setAttribute('class', 'dark')
-//root.className = 'dark' //  используется к Реакте, потому что class зарезервировано за классами
-
-// root.classList.toggle()
-
+// THEME
 const themeButton = document.createElement('button')
 themeButton.innerHTML = 'change color'
-root.append(themeButton)
+header.append(themeButton)
 
 themeButton.addEventListener('click', function () {
   root.classList.toggle('dark')
 })
 
-// создать userCard div
-const userCard = document.createElement('div')
-root.append(userCard)
-// три поля - имя h1, возраст h2, город p
-const userName = document.createElement('h1')
-userName.innerText = 'Peter'
+// ОТРИСОВКА ПОЛЬЗОВАТЕЛЕЙ
+const renderUsers = (arrayOfUsers) => {
+  arrayOfUsers.forEach((user) => {
+    const userCard = document.createElement('div')
 
-const userAge = document.createElement('h2')
-userAge.innerText = 42
-const userCity = document.createElement('p')
-userCity.innerText = 'Munich'
-userCard.append(userName, userAge, userCity)
-userCard.classList.add('user-card')
+    const userName = document.createElement('h1')
+    userName.innerText = user.name
 
-// root.innerHTML = '<h1>CARD</h1>' небезопасно
-// createElement создаем элемент
-// innerText - для наполнения
-// append - крепим к родителю к root
-// добавить класс к карточке .user-card
+    const userAge = document.createElement('h2')
+    userAge.innerText = user.age
 
-// создать файл css добавить классы
+    const userCity = document.createElement('p')
+    userCity.innerText = user.city
+
+    userCard.append(userName, userAge, userCity)
+    userCard.classList.add('user-card')
+
+    userContainer.append(userCard)
+  })
+}
+
+renderUsers(users)

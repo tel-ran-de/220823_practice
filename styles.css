@@ -8,6 +8,11 @@ body {
   height: 100vh;
 }
 
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .user-card {
   display: flex;
   justify-content: center;
