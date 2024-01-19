@@ -46,7 +46,15 @@ form.addEventListener('submit', function (event) {
   // prevent - предотвратить
   // default = дефолтный по умолчанию
   // он предотвращает поведение перезагрузки страницы
+
+  // получить данные из инпутов
+  // сформировать объект из этих инпутов
+  // засунуть объект в массив
+  // вызвать функцию с новым массивом
+
   console.log(event)
+  console.log(event.type)
+  console.log(event.target)
 })
 
 // USER CONTAINER
