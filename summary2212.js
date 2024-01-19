@@ -187,14 +187,11 @@ const allStrings = numbers4.map(function (number) {
 // 3. Умножить каждый элемент на его индекс
 const numbers5 = [1, 2, 3, 4, 5]
 numbers3.map(function (element, index) {
-    return element * index
+  return element * index
 })
 // 4. Прибавить к числу 10 если его индекс кратен 3
 const numbers61 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-numbers61.map(function (element, index) {
-    if () {
-     
-    } else {
-        
- }
-})
+numbers61.map(function (element, index) {})
+
+const vallue = 25
+const werd = 2 // value vlue
