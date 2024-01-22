@@ -63,4 +63,41 @@ console.log(dog)
 
 // все методы и свойства родителей переходят к детям
 
-// Создать класс кот называется Media и в конструкторе одно свойство name
+// Создать класс  называется Media и в конструкторе одно свойство name
+
+class Media {
+  constructor(name) {
+    this.name = name
+  }
+}
+
+const media = new Media('8 women')
+console.log(media)
+// создание дочернего класса
+// extend - расширить
+// добавляем в родительский класс новые свойства
+
+class Song extends Media {
+  constructor(name, album) {
+    super(name)
+    this.album = album
+  }
+}
+// слово new вызывает конструктор
+// super  - вызывает конструктор родителя
+const newSong = new Song('a', 'a')
+console.log(newSong)
+// Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+
+// Создать новый класс Film  -- расширить от Media
+// в супер указываем name
+// добавляем новое свойсво director
+class Film extends Media {
+  constructor(name, director) {
+    super(name)
+    this.director = director
+  }
+}
+
+const film = new Film('a', 'b')
+console.log(film)
