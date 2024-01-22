@@ -19,3 +19,16 @@ root.classList.remove('container') // удаляет
 // добавить класс к карточке .user-card
 
 // создать файл css добавить классы
+
+// 1 часть пары
+// object keys values entries
+// for in цикл
+// spread operator
+// деструктуризация
+
+// 2 часть пары
+// функция конструктор
+// class - constructor
+// this в объектах
+// static - статические методы и свойства
+// прототипы - prototypes
