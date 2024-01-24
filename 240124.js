@@ -51,3 +51,18 @@ console.log(Math.floor(Math.random() * 5))
 
 console.log(Math.floor(Math.random() * 5))
 console.log(Math.floor(Math.random() * 5))
+
+// Создать новый класс --> расширить School
+// PrimarySchool
+class PrimarySchool extends School {
+  constructor(name, numberOfStudents, level, pickUpPolicy, diploma) {
+    super(name, numberOfStudents, level) // Все что наследуется от родителя
+    this.pickUpPolicy = pickUpPolicy
+    this.diploma = diploma
+  }
+}
+//pickUpPolicy
+new School('harvard', 111, 'excellent') // вызывается функция конструктор
+new PrimarySchool()
+
+addEventListener('click', function () {})
