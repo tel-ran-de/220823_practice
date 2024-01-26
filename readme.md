@@ -32,3 +32,42 @@ root.classList.remove('container') // удаляет
 // this в объектах
 // static - статические методы и свойства
 // прототипы - prototypes
+
+Ревью Object
+
+Тип ключей, вложенность, in hasOwnProperty
+keys, values, entries, assign
+Деструктуризация
+Spread Operator
+
+this
+контекст
+call, bind, apply
+отличие стрелочных функций от обычных
+
+Classes
+
+ООП
+Function constructor
+Classes
+constructor()
+props - объект в качестве параметров
+Наследование
+extends
+super
+prototype
+static
+dom в классах
+getter/setter
+приватные свойства
+
+// стрелочные функции
+// события, типы событий
+// деструктуризация
+// спред оператор
+// тернарный оператор
+// типы данных примитвные и ссылочные
+// логические ?? || &&
+// импорт и экспорт
+// запросы на сервер
+// функциональное программирование
