@@ -33,13 +33,20 @@ class LibraryItem {
   }
 
   set id(newId) {
+    if (typeof newId !== 'number') {
+      console.log('Id must be a number')
+    }
     this.#id = newId
   }
+
   set title(newTitle) {
     this.#title = newTitle
   }
-
+  // если не является булевым значеним, то выдаем ошибку что переменная должна быть true/false
   set isAvailable(newStatus) {
+    if (typeof newStatus !== 'boolean') {
+      console.log('it must be a boolean value')
+    }
     this.#isAvailable = newStatus
   }
 }
@@ -53,3 +60,32 @@ console.log(libraryInstance.sum)
 // сеттеры для свойств
 
 //когда заносим в сеттер id не число, то у нас вывводится ошибка в консоль, id должно быть числом
+
+// новый класс Book расширяем libraryItem
+// author, genre, numPages
+// все наследуем от родителя
+// все свойства приватные
+
+class Book extends LibraryItem {
+  #author
+  #genre
+  #numPages
+  constructor(id, title, isAvailable, amount, price, author, genre, numPages) {
+    super(id, title, isAvailable, amount, price)
+    this.#author = author
+    this.#genre = genre
+    this.#numPages = numPages
+  }
+}
+
+class DVD extends LibraryItem {
+  #director
+  #duration
+  #releaseYear
+  constructor(id, title, isAvailable, amount, price, director, duration, releaseYear) {
+    super(id, title, isAvailable, amount, price)
+    this.#director = director
+    this.#duration = duration
+    this.#releaseYear = releaseYear
+  }
+}
