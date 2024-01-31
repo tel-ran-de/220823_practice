@@ -1,24 +1,21 @@
-// LibraryItem
-// conctrutor
-// id title
-// isAvailable
-// все свойства приватные
 class LibraryItem {
   #id
   #title
   #isAvailable
   #amount
   #price
-  constructor(id, title, isAvailable, amount, price) {
-    this.#id = id
+  constructor(title, isAvailable, amount, price) {
+    this.#id = LibraryItem.generateId()
     this.#title = title
     this.#isAvailable = isAvailable
     this.#amount = amount
     this.#price = price
   }
+
   get id() {
     return this.#id
   }
+
   get title() {
     return this.#title
   }
@@ -32,11 +29,18 @@ class LibraryItem {
     return this.#amount * this.#price
   }
 
-  set id(newId) {
-    if (typeof newId !== 'number') {
-      console.log('Id must be a number')
-    }
-    this.#id = newId
+  // set id(newId) {
+  //   if (typeof newId !== 'number') {
+  //     console.log('Id must be a number')
+  //   }
+  //   this.#id = newId
+  // }
+
+  // статический метод, который будет генерировать за нас ключ
+  // Math.floor() Math.random()  ключ от 1 до 1000
+  // generateId()
+  static generateId() {
+    return Math.floor(Math.random() * 1000) + 1
   }
 
   set title(newTitle) {
@@ -51,10 +55,13 @@ class LibraryItem {
   }
 }
 
+const libItem = new LibraryItem('AA', true, 10, 100)
+console.log(libItem)
+console.log(libItem.title)
 const libraryInstance = new LibraryItem(1, 'book', true, 3, 100)
 // используем геттер для того чтобы получить данные
 // геттер эта функция - но мы используем его как просто свойство
-console.log(libraryInstance.sum)
+
 // геттеры для все свойств
 
 // сеттеры для свойств
@@ -70,22 +77,62 @@ class Book extends LibraryItem {
   #author
   #genre
   #numPages
-  constructor(id, title, isAvailable, amount, price, author, genre, numPages) {
-    super(id, title, isAvailable, amount, price)
+  constructor(title, isAvailable, amount, price, author, genre, numPages) {
+    super(title, isAvailable, amount, price) // СВЯЗЬ С РОДИТЕЛЕМ
     this.#author = author
     this.#genre = genre
     this.#numPages = numPages
   }
 }
-
+// конструктор РЕБЕНКА = Свойства Родителя (super) + новые свойства
 class DVD extends LibraryItem {
   #director
   #duration
   #releaseYear
-  constructor(id, title, isAvailable, amount, price, director, duration, releaseYear) {
-    super(id, title, isAvailable, amount, price)
+  constructor(title, isAvailable, amount, price, director, duration, releaseYear) {
+    super(title, isAvailable, amount, price) // он КОПИРУЕТ/ВЫЗЫВАЕТ конструктор РОДИТЕЛЯ
     this.#director = director
     this.#duration = duration
     this.#releaseYear = releaseYear
   }
 }
+// constructor, extends, super, #, static, getter, setter
+
+// Magazine LibraryItem
+// publisher, issueNumber = новые свойства приватные
+// constructor - super
+
+class Magazine extends LibraryItem {
+  #publisher
+  #issueNumber
+  constructor(title, isAvailable, amount, price, publisher, issueNumber) {
+    // ВСЕ НАСЛЕДОВАЛ ОТ РОДИТЕЛЯ
+    super(title, isAvailable, amount, price)
+    this.#publisher = publisher
+    this.#issueNumber = issueNumber
+  }
+}
+const mag = new Magazine('Elle', true, 1, 100, 'elle', ' 11.08')
+const mag2 = new Magazine('Elle1', true, 1, 100, 'elle1', ' 11.08')
+console.log(mag)
+console.log(mag.title)
+// новый класс Library
+// приватное свойство items равен []
+
+class Library {
+  #items = []
+  // метод добавляет экземпляр класса libraryItem/Magazine etc. в массив items
+  // this.#items
+  addItem(item) {
+    this.#items.push(item)
+  }
+
+  get items() {
+    return this.#items
+  }
+}
+
+const newLibrary = new Library()
+newLibrary.addItem(mag)
+newLibrary.addItem(mag2)
+console.log(newLibrary.items)
