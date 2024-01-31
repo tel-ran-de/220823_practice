@@ -112,12 +112,6 @@ class Magazine extends LibraryItem {
     this.#issueNumber = issueNumber
   }
 }
-const mag = new Magazine('Elle', true, 1, 100, 'elle', ' 11.08')
-const mag2 = new Magazine('Elle1', true, 1, 100, 'elle1', ' 11.08')
-console.log(mag)
-console.log(mag.title)
-// новый класс Library
-// приватное свойство items равен []
 
 class Library {
   #items = []
@@ -126,13 +120,41 @@ class Library {
   addItem(item) {
     this.#items.push(item)
   }
-
+  removeItems(itemToDelete) {
+    // id не совпадает - элемент остается в новом массиве
+    // id совпадает  элемент удаляется
+    this.#items.filter((item) => item.id !== itemToDelete.id)
+  }
+  //  реализовать функцию removeItem кот позволяет удалять элемент из массива items
   get items() {
     return this.#items
   }
 }
 
+const mag = new Magazine('Elle', true, 1, 100, 'elle', ' 11.08')
+const mag2 = new Magazine('Elle1', true, 1, 100, 'elle1', ' 11.08')
+
 const newLibrary = new Library()
 newLibrary.addItem(mag)
 newLibrary.addItem(mag2)
 console.log(newLibrary.items)
+
+// id всегда УНИКАЛЕН
+const elementToDelete = { id: 1, name: 'iphone' }
+
+const arr = [
+  { id: 1, name: 'iphone' },
+  { id: 2, name: 'xiaomu' },
+  { id: 3, name: 'galaxy' },
+  { id: 100, name: 'ыфыа' },
+]
+const newArr = arr.filter((el) => {
+  return el.id !== 1 // если el.id ===1 это тру то el добавляется в новый массив
+})
+//console.log(newArr)
+
+function deleteElement(arr, elemToDelete) {
+  return arr.filter((el) => el.id !== elemToDelete.id)
+}
+
+console.log(deleteElement(arr, elementToDelete))
