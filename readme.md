@@ -207,3 +207,37 @@ const user1 = { name: 'Clark', age: 30, city: 'Smallville' }
 // const user11 = new User(user1)
 
 // this это объект перед точкой
+
+// Кратко рассмотрим работу event loop - событийный цикл
+// работа промисов
+// промисы необхимы для понимания работы фетч запросов (fetch)
+// FETCH
+// async await
+// обработать ошибки try catch
+// можем отрисовать данные, которые пришли с сервера
+
+0902
+
+// resolve - колбек функция
+// reject - колбек функция
+const random = new Promise((callback1, callback2) => {
+if (Math.random() > 0.5) {
+setTimeout(() => callback1('apple'), 1000)
+} else {
+setTimeout(() => callback2('product not found'), 2000)
+}
+})
+
+random
+.then((data) => console.log(data))
+.catch((error) => console.log(error))
+.finally(() => console.log('Works after all'))
+
+Promise.resolve().then(() => console.log('promise'))
+setTimeout(() => console.log('timote'), 1000)
+console.log('3')
+
+// separation of concerns
+// необходимо логику выносить
+// бизнес логика работает отдельно
+// UI отдельно от Функционала
