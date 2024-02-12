@@ -48,3 +48,14 @@ form {
   height: 200px;
   background: rgb(210, 221, 210);
 }
+
+.products-container > div {
+  min-height: 20px;
+  background: #ffffff;
+  margin: 5px;
+}
+
+.products-container.dark > div {
+  background: #4e4b4b;
+  color: #ffffff;
+}

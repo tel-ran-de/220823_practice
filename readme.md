@@ -241,3 +241,46 @@ console.log('3')
 // необходимо логику выносить
 // бизнес логика работает отдельно
 // UI отдельно от Функционала
+
+// catch - ловить / поймать
+// caught - причастие от catch = пойманный
+// un - отрицание
+// uncaught - непойманный
+// uncaught error - непойманная ошибка
+// ошибка кот не находится в блоке try catch
+// ПОТЕНЦИАЛЬНО ПРОБЛЕМНЫЙ КОД
+try {
+const num = 1
+num.split()
+} catch (error) {
+console.log(error.message)
+console.log(error.name)
+console.log(error.stack)
+}
+
+// try catch позволяет выполнять работу кода
+
+const productClasses = localStorage.getItem('theme')
+console.log(productClasses)
+// productClasses либо пустой либо со значениями
+// если не будет проверки, то может быть рошибка и код не будет работать
+// если productClasses null = if(productClasses) - false и часть в { } не отрабатывает
+// и нету багов
+if (productClasses) {
+  productsContainer.className = productClasses
+}
+
+themeButton.addEventListener('click', () => {
+  // если есть dark то удали, елси нет то добавь
+  // contains('dark) = true false
+  // remove - удалить
+  // add - добавить
+
+  // productsContainer.classList.contains('dark')
+  //   ? productsContainer.classList.remove('dark')
+  //   : productsContainer.classList.add('dark')
+
+  productsContainer.classList.toggle('dark')
+  // console.log(productsContainer.className)
+  localStorage.setItem('theme', productsContainer.className)
+})

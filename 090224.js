@@ -1,25 +1,17 @@
 const root = document.querySelector('#root')
 const productsContainer = document.createElement('div')
+const themeButton = document.querySelector('#change-color')
 root.append(productsContainer)
 productsContainer.classList.add('products-container')
 
-// catch - ловить / поймать
-// caught - причастие от catch = пойманный
-// un - отрицание
-// uncaught - непойманный
-// uncaught error - непойманная ошибка
-// ошибка кот не находится в блоке try catch
-// ПОТЕНЦИАЛЬНО ПРОБЛЕМНЫЙ КОД
-try {
-  const num = 1
-  num.split()
-} catch (error) {
-  console.log(error.message)
-  console.log(error.name)
-  console.log(error.stack)
-}
+const productClasses = localStorage.getItem('theme')
 
-// try catch  позволяет выполнять работу кода
+if (productClasses) productsContainer.className = productClasses
+
+themeButton.addEventListener('click', () => {
+  productsContainer.classList.toggle('dark')
+  localStorage.setItem('theme', productsContainer.className)
+})
 
 const showUsers = (arrayOfObjects) => {
   arrayOfObjects.forEach((product) => {
