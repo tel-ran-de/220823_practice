@@ -11,10 +11,11 @@ const users = [
   { id: 5, name: 'David', age: 40 },
 ]
 
-localStorage.setItem('users', JSON.stringify(users))
-const usersFromStorage = JSON.parse(localStorage.getItem('users')) // по ключу
+// возьми данные и LS, если их там нет то поставь массив по дефолту
+const usersFromStorage = JSON.parse(localStorage.getItem('users')) || users
 
 const showUsers = (arrayOfObjects) => {
+  root.innerHTML = ''
   arrayOfObjects.forEach((user) => {
     const titleContainer = document.createElement('div')
     titleContainer.innerText = user.name
@@ -22,23 +23,25 @@ const showUsers = (arrayOfObjects) => {
   })
 }
 
-showUsers(users)
+showUsers(usersFromStorage)
 
 form.addEventListener('submit', (event) => {
   event.preventDefault()
-
-  nameInput.value = ''
-  ageInput.value = ''
 
   const newUser = {
     id: Math.random(),
     name: nameInput.value,
     age: ageInput.value,
   }
-  // данные добавить в массив
-  newUser, users
-  // и перерисовать пользователей
-  showUsers()
+  // добавление нового пользотеля в массив
+  usersFromStorage.push(newUser)
+  // перерисовка нового массиа
+  showUsers(usersFromStorage)
+  // сохранение в LS
+  localStorage.setItem('users', JSON.stringify(usersFromStorage))
+
+  nameInput.value = ''
+  ageInput.value = ''
 })
 
 // при добавлении нового пользователя в массив мы новый массив
